@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Exercise 1</title>
+
+    <script>
+        var size = window.prompt("Enter size: ");
+
+        var output = "";
+
+        for (let i = 0; i < size; i++)
+        {
+            for (let j = 0; j < size; j++)
+            {
+                if (j >= i)
+                {
+                    output += "*";
+                }
+                else
+                {
+                    output += " ";
+                }
+            }
+            output += "\n";
+        }
+
+        console.log(output);
+
+
+    </script>
+
+    <body>
+
+    </body>
+
+
+</html>

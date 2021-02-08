@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Exercise 1</title>
+
+    <script>
+        var height = window.prompt("Enter height: ");
+        var width = window.prompt("Enter width: ");
+
+        var output = "";
+
+        for (let i = 0; i < height; i++)
+        {
+            if (i % 2 == 0)
+            {
+                for (let j = 0; j < width; j++)
+                {
+                    if (j % 2 == 0)
+                    {
+                        output += "*";
+                    }
+                    else
+                    {
+                        output += " ";
+                    }
+                }
+            }
+            else
+            {
+                if (i % 2 == 1)
+                {
+                    for (let j = 0; j < width; j++)
+                    {
+                        if (j % 2 == 0)
+                        {
+                            output += " ";
+                        }
+                        else
+                        {
+                            output += "*";
+                        }
+                    }
+                }
+            }
+
+            output += "\n";
+        }
+
+        console.log(output);
+
+
+    </script>
+
+    <body>
+
+    </body>
+
+
+</html>

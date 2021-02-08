@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Exercise 1</title>
+
+    <script>
+        var width = window.prompt("Enter a positive width: ");
+        var height = window.prompt("Enter a positive height no greater than half the width: ");
+
+        // Error Testing
+
+        if (height < 1)
+        {
+            throw new Error("Height value is not positive");
+        }
+
+        if (width < 1)
+        {
+            throw new Error("Width value is not positive");
+        }
+
+        if ((Math.floor(width / 2) ) < height)
+        {
+            throw new Error("Impossible shape!");
+        }
+
+        // Main Function
+
+        var output = "";
+
+        for (let i = 0; i < height; i++)
+        {
+            for (let j = 0; j < width; j++)
+            {
+                if ( (j >= i) && (j <= (width-i-1)) )
+                {
+                    output += "*";
+                }
+                else
+                {
+                    output += " ";
+                }
+            }
+            output += "\n";
+        }
+
+        console.log(output);
+
+
+    </script>
+
+    <body>
+
+    </body>
+
+
+</html>
