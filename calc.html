@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Exercise 1</title>
+
+    <script>
+        var input = window.prompt("Please enter whole numbers separated by spaces.");
+        var numbers = input.replace(/\s+/g, '').split(/\D/g);
+        var operators = input.replace(/\s+/g, '').split(/\d/g).filter(Boolean);    
+        var total = parseInt(numbers.shift());
+
+        while (numbers.length > 0)
+        {
+            let action = operators.shift();
+
+            if (action == "+")
+            {
+                total = total + parseInt(numbers.shift());
+            }
+            else if (action == "-")
+            {
+                total = total - parseInt(numbers.shift());
+            }
+        }
+
+        console.log(total);
+
+    </script>
+
+    <body>
+
+    </body>
+
+
+</html>

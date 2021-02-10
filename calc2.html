@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Exercise 1</title>
+
+    <script>
+        
+        // Get the useful data we want
+        var input = window.prompt("Please enter the math expression you want to solve.");
+        var sections = input.replace(/\s+/g, '').split(";");
+        sections.pop();
+        current_section = "";
+        answers = new Array();
+
+        // Calculation logic
+        for (i = 0; i < sections.length; i++)
+        {
+            current_section = sections[i];
+            let numbers = current_section.split(/\D/g);
+            let operators = current_section.split(/\d/g).filter(Boolean);
+            let total = parseInt(numbers.shift());
+
+            while (numbers.length > 0)
+            {
+                let action = operators.shift();
+
+                if (action == "+")
+                {
+                    total = total + parseInt(numbers.shift());
+                }
+                else if (action == "-")
+                {
+                    total = total - parseInt(numbers.shift());
+                }
+            }
+            answers.push(total);
+        }
+
+        // Print the answers
+        for (i = 0; i < answers.length; i++)
+        {
+            console.log(answers[i]);
+        }
+      
+    </script>
+
+    <body>
+
+    </body>
+
+
+</html>

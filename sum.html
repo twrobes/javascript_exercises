@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Exercise 1</title>
+
+    <script>
+        var input = window.prompt("Please enter whole numbers separated by spaces.");
+        var num_array = input.split(" ");
+        var sum = 0;
+
+        console.log(num_array);
+
+        for (i = 0; i < num_array.length; i++)
+        {
+            sum += parseInt(num_array[i]);
+            console.log("loop");
+        }
+
+        console.log(sum);
+
+    </script>
+
+    <body>
+
+    </body>
+
+
+</html>

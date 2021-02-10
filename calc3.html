@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Exercise 1</title>
+
+    <script>
+        
+        // Get the useful data we want
+        var input = window.prompt("Please enter the math expression you want to solve.");
+        var sections = input.replace(/\s+/g, '').split(";");
+        //console.log(sections);
+        //console.log(sections.length);
+        sections.pop();
+        var current_section = "";
+        var answers = new Array();
+
+
+        // Calculation logic
+        for (let i = 0; i < sections.length; i++)
+        {
+            //console.log("loop i ==========================================================");
+            current_section = sections[i];
+
+            let numbers = current_section.split(/\D/g);
+            let pow_numbers = new Array();
+            let temp_operators = current_section.split(/\d/g).filter(Boolean);
+            let operators = new Array();
+
+            //console.log("numbers: " + numbers);
+            //console.log("temp_operators: " + temp_operators);
+
+            // Cleaning operators stack
+            for (let j = 0; j < temp_operators.length; j++)
+            {
+                //console.log("loop j");
+                operators.push(temp_operators[j].replace("^", ""));
+            }
+            //console.log("operators: " + operators);
+
+            // Cleaning numbers stack and doing pow calculation
+            for (let k = 0; k < numbers.length; k++)
+            {
+                //console.log("loop k");
+                if (numbers[k] === "")
+                {
+                    pow_numbers.push(Math.pow(parseInt(numbers[k-1]), 2));
+                }
+                else if (numbers[k + 1] < numbers.length && numbers[k + 1] === "")
+                {
+                    continue;
+                }
+                else
+                {
+                    pow_numbers.push(parseInt(numbers[k]));
+                }
+            }
+            //console.log("pow_numbers: " + pow_numbers);
+
+            let total = pow_numbers.shift();
+
+            while (pow_numbers.length > 0)
+            {
+                //console.log("while")
+                let action = operators.shift();
+
+                if (action == "+")
+                {
+                    total = total + pow_numbers.shift();
+                }
+                else if (action == "-")
+                {
+                    total = total - pow_numbers.shift();
+                }
+            }
+            //console.log("answers: " + answers);
+            answers.push(total);
+        }
+
+        //console.log(answers);
+
+        // Print the answers
+        for (i = 0; i < answers.length; i++)
+        {
+            console.log(answers[i]);
+        }
+
+    </script>
+
+    <body>
+
+    </body>
+
+
+</html>
